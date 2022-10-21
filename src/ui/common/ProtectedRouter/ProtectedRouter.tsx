@@ -10,7 +10,6 @@ export const ProtectedRoute: FC<ProtectedRouteProps> = ({
   isAuth,
   children,
 }) => {
-  console.log("isAuth", isAuth);
   if (!isAuth) {
     return <Navigate to="/login" replace />;
   }
