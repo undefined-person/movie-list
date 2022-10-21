@@ -21,7 +21,7 @@ export const signIn = createAsyncThunk(
 );
 
 export const signUp = createAsyncThunk(
-  "auth/login",
+  "auth/register",
   async (authData: IAuth, thunkAPI) => {
     try {
       await api.post<IAuthResponse>("/auth/register", {

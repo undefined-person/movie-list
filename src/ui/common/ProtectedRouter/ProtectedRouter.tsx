@@ -11,7 +11,7 @@ export const ProtectedRoute: FC<ProtectedRouteProps> = ({
   children,
 }) => {
   if (!isAuth) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/login" />;
   }
 
   return children;

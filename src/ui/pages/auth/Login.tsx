@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
@@ -27,7 +27,7 @@ export const Login = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data: IAuth) => {
-    dispatch(signIn({ data, callback: () => navigate("/home") }));
+    dispatch(signIn({ data, callback: () => navigate("/") }));
   };
 
   return (
