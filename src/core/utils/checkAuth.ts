@@ -1,6 +1,3 @@
 import { TOKEN } from "./constants";
 
-export const checkAuth = () => {
-  console.log(!!localStorage.getItem(TOKEN));
-  return !!localStorage.getItem(TOKEN);
-};
+export const checkAuth = () => !!localStorage.getItem(TOKEN);

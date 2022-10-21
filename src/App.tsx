@@ -4,17 +4,15 @@ import { Route, Routes } from "react-router-dom";
 import { Login, MovieList, Registration, Movie, Favorites } from "ui/pages";
 import { Modal, ProtectedRoute } from "ui/common";
 import { checkAuth } from "core/utils";
-import { useAppSelector } from "./core/hooks";
 
 function App() {
-  const { isAuth } = useAppSelector((state) => state.auth);
   return (
     <>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/registration" element={<Registration />} />
         <Route
-          path="/home"
+          path="/"
           element={
             <ProtectedRoute isAuth={checkAuth()}>
               <MovieList />
