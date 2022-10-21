@@ -27,7 +27,7 @@ export const Login = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data: IAuth) => {
-    dispatch(signIn({ data, callback: () => navigate("/") }));
+    dispatch(signIn({ data, callback: () => navigate("/home") }));
   };
 
   return (

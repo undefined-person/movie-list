@@ -12,7 +12,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/registration" element={<Registration />} />
         <Route
-          path="/"
+          path="/home"
           element={
             <ProtectedRoute isAuth={checkAuth()}>
               <MovieList />
