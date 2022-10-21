@@ -1,25 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+
+import { Login, MovieList, Registration, Movie, Favorites } from "ui/pages";
+import { Modal, ProtectedRoute } from "ui/common";
+import { checkAuth } from "core/utils";
+import { useAppSelector } from "./core/hooks";
 
 function App() {
+  const { isAuth } = useAppSelector((state) => state.auth);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/registration" element={<Registration />} />
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute isAuth={checkAuth()}>
+              <MovieList />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/movie/:id"
+          element={
+            <ProtectedRoute isAuth={checkAuth()}>
+              <Movie />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/favorites"
+          element={
+            <ProtectedRoute isAuth={checkAuth()}>
+              <Favorites />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+      <Modal />
+    </>
   );
 }
 
